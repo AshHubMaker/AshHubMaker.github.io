@@ -1,202 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>EaglerCraftX</title>
-     <meta name="description" content="Eaglercraft Web Clients Site">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Eaglercraft, EaglercraftX, Eaglercraft WASM, EaglercraftX WASM, EaglercraftWASM, EaglercraftXWASM, Minecraft, Eaglercraft Modded, EaglercraftModded, Astra Client, Astra, Resent Client, Resent, EaglerForge Client, Eaglerforge, Starlike Client, Starlike, Prism Client, Prism, EaglyMC Client, EaglyMC, Precision Client, Precision Client Beta, Precision Client Beta 2, Precision Beta, Precision Beta 2, Minecraft Web, Minecraft Online, MinecraftWeb, MinecraftOnline, Sandbox, Fun, Game, Games, Offline, Offline Game, Offline Games, Minecraft 1.8, Minecraft 1-8, Minecraft 1.5.2, Minecraft 1-5-2, Minecraft 1.7.3, Minecraft 1-7-3, Minecraft Infdev, 1.8, 1-8, 1.5.2, 1-5-2, 1.7.3, 1-7-3">
-    <link rel="icon" type="image/x-icon" href="images/eaglercommunity.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2593894696548093" crossorigin="anonymous"></script>
-    <script src="js/darkmode.js"></script>
-    <script src="js/ga4.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/popup.js"></script>
-    
-    <meta property="og:title" content="Eaglercraft Client Collections" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.eaglercraft.win" />
-<meta property="og:image" content="https://www.eaglercraft.win/images/eaglercommunity.png" />
+# 🦅 Eagle Craft
 
-<meta property="og:description" 
-  content="Eaglercraft Client Collection Site. We have many clients to choose from!" />
-<meta property="og:site_name" content="Eaglercraft Client Collection Site" />
-</head>
-<body>
-    <header>
-        <h1>Welcome to EaglerCraftX</h1>
-    </header>
-    <main>
-        <section class="darkmode">
-            <div calss="darkmodediv">
-                <label for="darkModeCheckbox">Dark Mode</label>
-                <input type="checkbox" id="darkModeCheckbox">
-            </div>
-        </section>
-        <section class="counter">
-            <p>Site views counter:</p>
-            <div align="center">
-                <img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=177632&amp;s=16" border="0" alt="View Counter">
-            </div>
-        </section>
-        <section class="info">
-            <p>These clients might be outdated.</p>
-            <p>Please give our <a href="https://git.eaglercraft.win/EaglercraftX-Client-Collections/EaglercraftX-Site" target="_blank">Gitea repository</a> a star if you like this site.</p>
-            <p>Server List and Mod List also at the bottom if you need it.</p>
-            <p>Have any questions, bug reports, or suggestions? Join our Discord server by pressing the button below!</p>
-            <a href="https://discord.gg/czV7M8JXXM" class="dsc-btn" target="_blank">Discord Server</a>
-            <p>Scroll down to the bottom for buttons/links.</p>
-            <p>WASM usually has better performance but may not work on some browsers</p>
-        </section>
-<div class="clientbutton">
-        <section class="clients">
-            <h2 class="pick-client">Pick a Client:</h2>
-            <label for="showModded">Show Modded Clients</label>
-            <input type="checkbox" id="showModded">
-            <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Search Clients...">
-            </div>
-            <!-- Version 1.12 Section -->
-            <div id="desktopVersion112">
-                <p class="version-text">Version 1.12</p>
-                <div class="Container112">
-                    <a class="version-link filter-button" href="./eagler-files/1.12/Main/index.html">
-                        <button>Main 1.12 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/wasm/1.12/Main/index.html">
-                        <button>Main 1.12 Client [WASM]</button>
-                    </a>
-                </div>
-            </div>
-            <!-- Version 1.8 Section -->
-            <div id="desktopVersion18">
-                <p class="version-text">Version 1.8</p>
-                <div class="Container18">
-                    <a class="version-link filter-button" href="./eagler-files/1.8/Main/index.html">
-                        <button>Main 1.8 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/wasm/1.8/Main/index.html">
-                        <button>Main 1.8 Client [WASM]</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.8/resent4.0/index.html">
-                        <button>Resent Client 4.0</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.8/Shadow_Client_en_US.html">
-                        <button>Shadow Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.8/AstraClient/index.html">
-                        <button>Astra Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/wasm/1.8/AstraClient/index.html">
-                        <button>Astra Client [WASM]</button>
-                    </a>
-                </div>
-            </div>
-            <div id="moddedButtons">
-                <p class="version-text">Version 1.8 Modded Clients</p>
-                <div class="Container18">
-                    <a class="version-link filter-button" href="./eagler-files/modded/1.8/EaglerForge/index.html">
-                        <button>EaglerForge</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/modded/1.8/ef_u48_v2.7_minify.html">
-                        <button>EFI [u48 : v2.7]</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/1.8/Starlike/index.html">
-                        <button>Starlike Client</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/1.8/prism-client.html">
-                        <button>Prism Client</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/1.8/EaglyMC/index.html">
-                        <button>EaglyMC Client</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/wasm/1.8/EaglyMC/index.html">
-                        <button>EaglyMC Client [WASM]</button>
-                    </a>
-                </div>
-            </div>
-            <!-- Version 1.5.2 Section -->
-            <div id="desktopVersion152">
-                <p class="version-text">Version 1.5.2</p>
-                <div class="Container15">
-                    <a class="version-link filter-button" href="./eagler-files/1.5.2/main/index.html">
-                        <button>Main 1.5.2 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.5.2/PrecisionBeta.html">
-                        <button>Precision Beta Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.5.2/precisionbeta2/index.html">
-                        <button>Precision Beta 2 Client</button>
-                    </a>
-                </div>
-            </div>
-            <!-- Other Section -->
-            <div id="desktopVersionOther">
-                <p class="version-text">Other Versions</p>
-                <div class="ContainerOther">
-                    <a class="version-link filter-button" href="./eagler-files/1.7.3/Beta_1.7.3_Offline_Download.html">
-                        <button>1.7.3 Beta Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.6.4/Main/index.html">
-                        <button>1.6.4 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/infdev/Infdev-20100630-1.html">
-                        <button>Infdev Client</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-</div>
-        <section class="danger-zone">
-            <h3>DANGER ZONE</h3>
-            <a onclick="openClrModal();" class="clr-btn">Reset All Local Data</a>
-            <a onclick="eruda.init();">
-                <button>Devtools</button>
-            </a>
-            <div id="clr-data-model" class="modal">
-                <div class="modal-content">
-                    <h2>DANGER ZONE</h2>
-                    <p>Are you sure you want to clear all your local storage data?</p>
-                    <button>Yes</button>
-                    <button class="cancel-btn">Cancel</button>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <p>We are not affiliated with EaglerCraft, Eagtek, Microsoft, or Mojang. We solely host these clients for you to play on.</p>
-        <p>By using this site you agree to Google Analytics being used on this site.</p>
-        <a href="https://git.eaglercraft.win/EaglercraftX-Client-Collections/EaglercraftX-Site" class="source-btn" target="_blank">Gitea Repository</a>
-        <a href="https://discord.gg/czV7M8JXXM" class="dsc-btn" target="_blank">Discord Server</a>
-        <a href="https://servers.eaglercraft.com/" target="_blank">
-            <button class="server-list">Server List</button>
-        </a>
-        <a href="https://eaglerrinth.github.io/" target="_blank">
-            <button class="eaglerrinth-mod-list">EaglerRinth Mod List</button>
-        </a>
-    </footer>
-    <div id="joinModal" class="modal">
-        <div class="modal-content">
-            <h2>Join Our Discord Server!</h2>
-            <p>Join for voting, bug reports, suggestions, help, etc.</p>
-            <button onclick="openCopyModal()">Yes</button>
-            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
-            <div style="margin-top: 20px;">
-                <input type="checkbox" id="dontShowCheckbox">
-                <label for="dontShowCheckbox">Don't show again</label>
-            </div>
-        </div>
-    </div>
-    <div id="copyModal" class="modal">
-        <div class="modal-content">
-            <h2>Copy Discord Link</h2>
-            <p class="copy-link" id="discordLink">https://discord.gg/czV7M8JXXM</p>
-            <button class="copy-btn">Copy Link</button>
-            <button class="cancel-btn">Close</button>
-        </div>
-    </div>
-</body>
-</html>
+Welcome to **Eagle Craft** — Soar Beyond Survival!
+
+---
+
+## ✨ Features
+
+- ⚔️ Custom PvP Arenas  
+- 🏰 Towny Survival  
+- 🌍 Dynamic World Events  
+- 🛒 Economy & Shops  
+- 🧙‍♂️ Magic & Quests  
+
+---
+
+## 🎮 How to Join
+
+**IP**: `play.eaglecraft.net`  
+**Version**: `1.20+`  
+
+---
+
+## 🔗 Links
+
+- [Discord Server](https://discord.gg/your-discord)
+- [Live Map](https://map.eaglecraft.net)
+
+---
+
+## 🛠 Powered by GitHub Pages
+
+Site auto-generated from this markdown. ✨
