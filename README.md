@@ -1,202 +1,696 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>EaglerCraftX</title>
-     <meta name="description" content="Eaglercraft Web Clients Site">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Eaglercraft, EaglercraftX, Eaglercraft WASM, EaglercraftX WASM, EaglercraftWASM, EaglercraftXWASM, Minecraft, Eaglercraft Modded, EaglercraftModded, Astra Client, Astra, Resent Client, Resent, EaglerForge Client, Eaglerforge, Starlike Client, Starlike, Prism Client, Prism, EaglyMC Client, EaglyMC, Precision Client, Precision Client Beta, Precision Client Beta 2, Precision Beta, Precision Beta 2, Minecraft Web, Minecraft Online, MinecraftWeb, MinecraftOnline, Sandbox, Fun, Game, Games, Offline, Offline Game, Offline Games, Minecraft 1.8, Minecraft 1-8, Minecraft 1.5.2, Minecraft 1-5-2, Minecraft 1.7.3, Minecraft 1-7-3, Minecraft Infdev, 1.8, 1-8, 1.5.2, 1-5-2, 1.7.3, 1-7-3">
-    <link rel="icon" type="image/x-icon" href="images/eaglercommunity.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2593894696548093" crossorigin="anonymous"></script>
-    <script src="js/darkmode.js"></script>
-    <script src="js/ga4.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/popup.js"></script>
-    
-    <meta property="og:title" content="Eaglercraft Client Collections" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.eaglercraft.win" />
-<meta property="og:image" content="https://www.eaglercraft.win/images/eaglercommunity.png" />
+"use strict";
 
-<meta property="og:description" 
-  content="Eaglercraft Client Collection Site. We have many clients to choose from!" />
-<meta property="og:site_name" content="Eaglercraft Client Collection Site" />
-</head>
-<body>
-    <header>
-        <h1>Welcome to EaglerCraftX</h1>
-    </header>
-    <main>
-        <section class="darkmode">
-            <div calss="darkmodediv">
-                <label for="darkModeCheckbox">Dark Mode</label>
-                <input type="checkbox" id="darkModeCheckbox">
-            </div>
-        </section>
-        <section class="counter">
-            <p>Site views counter:</p>
-            <div align="center">
-                <img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=177632&amp;s=16" border="0" alt="View Counter">
-            </div>
-        </section>
-        <section class="info">
-            <p>These clients might be outdated.</p>
-            <p>Please give our <a href="https://git.eaglercraft.win/EaglercraftX-Client-Collections/EaglercraftX-Site" target="_blank">Gitea repository</a> a star if you like this site.</p>
-            <p>Server List and Mod List also at the bottom if you need it.</p>
-            <p>Have any questions, bug reports, or suggestions? Join our Discord server by pressing the button below!</p>
-            <a href="https://discord.gg/czV7M8JXXM" class="dsc-btn" target="_blank">Discord Server</a>
-            <p>Scroll down to the bottom for buttons/links.</p>
-            <p>WASM usually has better performance but may not work on some browsers</p>
-        </section>
-<div class="clientbutton">
-        <section class="clients">
-            <h2 class="pick-client">Pick a Client:</h2>
-            <label for="showModded">Show Modded Clients</label>
-            <input type="checkbox" id="showModded">
-            <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Search Clients...">
-            </div>
-            <!-- Version 1.12 Section -->
-            <div id="desktopVersion112">
-                <p class="version-text">Version 1.12</p>
-                <div class="Container112">
-                    <a class="version-link filter-button" href="./eagler-files/1.12/Main/index.html">
-                        <button>Main 1.12 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/wasm/1.12/Main/index.html">
-                        <button>Main 1.12 Client [WASM]</button>
-                    </a>
-                </div>
-            </div>
-            <!-- Version 1.8 Section -->
-            <div id="desktopVersion18">
-                <p class="version-text">Version 1.8</p>
-                <div class="Container18">
-                    <a class="version-link filter-button" href="./eagler-files/1.8/Main/index.html">
-                        <button>Main 1.8 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/wasm/1.8/Main/index.html">
-                        <button>Main 1.8 Client [WASM]</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.8/resent4.0/index.html">
-                        <button>Resent Client 4.0</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.8/Shadow_Client_en_US.html">
-                        <button>Shadow Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.8/AstraClient/index.html">
-                        <button>Astra Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/wasm/1.8/AstraClient/index.html">
-                        <button>Astra Client [WASM]</button>
-                    </a>
-                </div>
-            </div>
-            <div id="moddedButtons">
-                <p class="version-text">Version 1.8 Modded Clients</p>
-                <div class="Container18">
-                    <a class="version-link filter-button" href="./eagler-files/modded/1.8/EaglerForge/index.html">
-                        <button>EaglerForge</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/modded/1.8/ef_u48_v2.7_minify.html">
-                        <button>EFI [u48 : v2.7]</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/1.8/Starlike/index.html">
-                        <button>Starlike Client</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/1.8/prism-client.html">
-                        <button>Prism Client</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/1.8/EaglyMC/index.html">
-                        <button>EaglyMC Client</button>
-                    </a>
-                    <a class="modded-buttons filter-button" href="./eagler-files/modded/wasm/1.8/EaglyMC/index.html">
-                        <button>EaglyMC Client [WASM]</button>
-                    </a>
-                </div>
-            </div>
-            <!-- Version 1.5.2 Section -->
-            <div id="desktopVersion152">
-                <p class="version-text">Version 1.5.2</p>
-                <div class="Container15">
-                    <a class="version-link filter-button" href="./eagler-files/1.5.2/main/index.html">
-                        <button>Main 1.5.2 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.5.2/PrecisionBeta.html">
-                        <button>Precision Beta Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.5.2/precisionbeta2/index.html">
-                        <button>Precision Beta 2 Client</button>
-                    </a>
-                </div>
-            </div>
-            <!-- Other Section -->
-            <div id="desktopVersionOther">
-                <p class="version-text">Other Versions</p>
-                <div class="ContainerOther">
-                    <a class="version-link filter-button" href="./eagler-files/1.7.3/Beta_1.7.3_Offline_Download.html">
-                        <button>1.7.3 Beta Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/1.6.4/Main/index.html">
-                        <button>1.6.4 Client</button>
-                    </a>
-                    <a class="version-link filter-button" href="./eagler-files/infdev/Infdev-20100630-1.html">
-                        <button>Infdev Client</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-</div>
-        <section class="danger-zone">
-            <h3>DANGER ZONE</h3>
-            <a onclick="openClrModal();" class="clr-btn">Reset All Local Data</a>
-            <a onclick="eruda.init();">
-                <button>Devtools</button>
-            </a>
-            <div id="clr-data-model" class="modal">
-                <div class="modal-content">
-                    <h2>DANGER ZONE</h2>
-                    <p>Are you sure you want to clear all your local storage data?</p>
-                    <button>Yes</button>
-                    <button class="cancel-btn">Cancel</button>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <p>We are not affiliated with EaglerCraft, Eagtek, Microsoft, or Mojang. We solely host these clients for you to play on.</p>
-        <p>By using this site you agree to Google Analytics being used on this site.</p>
-        <a href="https://git.eaglercraft.win/EaglercraftX-Client-Collections/EaglercraftX-Site" class="source-btn" target="_blank">Gitea Repository</a>
-        <a href="https://discord.gg/czV7M8JXXM" class="dsc-btn" target="_blank">Discord Server</a>
-        <a href="https://servers.eaglercraft.com/" target="_blank">
-            <button class="server-list">Server List</button>
-        </a>
-        <a href="https://eaglerrinth.github.io/" target="_blank">
-            <button class="eaglerrinth-mod-list">EaglerRinth Mod List</button>
-        </a>
-    </footer>
-    <div id="joinModal" class="modal">
-        <div class="modal-content">
-            <h2>Join Our Discord Server!</h2>
-            <p>Join for voting, bug reports, suggestions, help, etc.</p>
-            <button onclick="openCopyModal()">Yes</button>
-            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
-            <div style="margin-top: 20px;">
-                <input type="checkbox" id="dontShowCheckbox">
-                <label for="dontShowCheckbox">Don't show again</label>
-            </div>
-        </div>
-    </div>
-    <div id="copyModal" class="modal">
-        <div class="modal-content">
-            <h2>Copy Discord Link</h2>
-            <p class="copy-link" id="discordLink">https://discord.gg/czV7M8JXXM</p>
-            <button class="copy-btn">Copy Link</button>
-            <button class="cancel-btn">Close</button>
-        </div>
-    </div>
-</body>
-</html>
+/*
+
+This is the backend for voice channels and LAN servers in eaglercraft
+
+it links with TeaVM EaglerAdapter at runtime
+
+Copyright 2022 ayunami2000 & lax1dude. All rights reserved.
+
+*/
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%% VOICE CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+window.initializeVoiceClient = (() => {
+
+	const READYSTATE_NONE = 0;
+	const READYSTATE_ABORTED = -1;
+	const READYSTATE_DEVICE_INITIALIZED = 1;
+
+	class EaglercraftVoicePeer {
+
+		constructor(client, peerId, peerConnection, offer) {
+			this.client = client;
+			this.peerId = peerId;
+			this.peerConnection = peerConnection;
+			this.stream = null;
+			
+			this.peerConnection.addEventListener("icecandidate", (evt) => {
+				if(evt.candidate) {
+					this.client.iceCandidateHandler(this.peerId, JSON.stringify({ sdpMLineIndex: evt.candidate.sdpMLineIndex, candidate: evt.candidate.candidate }));
+				}
+			});
+			
+			this.peerConnection.addEventListener("track", (evt) => {
+				this.rawStream = evt.streams[0];
+				const aud = new Audio();
+				aud.autoplay = true;
+				aud.muted = true;
+				aud.onended = function() {
+					aud.remove();
+				};
+				aud.srcObject = this.rawStream;
+				this.client.peerTrackHandler(this.peerId, this.rawStream);
+			});
+			
+			this.peerConnection.addStream(this.client.localMediaStream.stream);
+			if (offer) {
+				this.peerConnection.createOffer((desc) => {
+					const selfDesc = desc;
+					this.peerConnection.setLocalDescription(selfDesc, () => {
+						this.client.descriptionHandler(this.peerId, JSON.stringify(selfDesc));
+					}, (err) => {
+						console.error("Failed to set local description for \"" + this.peerId + "\"! " + err);
+						this.client.signalDisconnect(this.peerId);
+					});
+				}, (err) => {
+					console.error("Failed to set create offer for \"" + this.peerId + "\"! " + err);
+					this.client.signalDisconnect(this.peerId);
+				});
+			}
+
+			this.peerConnection.addEventListener("connectionstatechange", (evt) => {
+				if(this.peerConnection.connectionState === 'disconnected' || this.peerConnection.connectionState === 'failed') {
+					this.client.signalDisconnect(this.peerId);
+				}
+			});
+			
+		}
+		
+		disconnect() {
+			this.peerConnection.close();
+		}
+		
+		mute(muted) {
+			this.rawStream.getAudioTracks()[0].enabled = !muted;
+		}
+
+		setRemoteDescription(descJSON) {
+			try {
+				const remoteDesc = JSON.parse(descJSON);
+				this.peerConnection.setRemoteDescription(remoteDesc, () => {
+					if(remoteDesc.type === 'offer') {
+						this.peerConnection.createAnswer((desc) => {
+							const selfDesc = desc;
+							this.peerConnection.setLocalDescription(selfDesc, () => {
+								this.client.descriptionHandler(this.peerId, JSON.stringify(selfDesc));
+							}, (err) => {
+								console.error("Failed to set local description for \"" + this.peerId + "\"! " + err);
+								this.client.signalDisconnect(this.peerId);
+							});
+						}, (err) => {
+							console.error("Failed to create answer for \"" + this.peerId + "\"! " + err);
+							this.client.signalDisconnect(this.peerId);
+						});
+					}
+				}, (err) => {
+					console.error("Failed to set remote description for \"" + this.peerId + "\"! " + err);
+					this.client.signalDisconnect(this.peerId);
+				});
+			} catch (err) {
+				console.error("Failed to parse remote description for \"" + this.peerId + "\"! " + err);
+				this.client.signalDisconnect(this.peerId);
+			}
+		}
+		
+		addICECandidate(candidate) {
+			try {
+				this.peerConnection.addIceCandidate(new RTCIceCandidate(JSON.parse(candidate)));
+			} catch (err) {
+				console.error("Failed to parse ice candidate for \"" + this.peerId + "\"! " + err);
+				this.client.signalDisconnect(this.peerId);
+			}
+		}
+
+	}
+
+	class EaglercraftVoiceClient {
+
+		constructor() {
+			this.ICEServers = [];
+			this.hasInit = false;
+			this.peerList = new Map();
+			this.readyState = READYSTATE_NONE;
+			this.iceCandidateHandler = null;
+			this.descriptionHandler = null;
+			this.peerTrackHandler = null;
+			this.peerDisconnectHandler = null;
+			this.microphoneVolumeAudioContext = null;
+		}
+
+		voiceClientSupported() {
+			return typeof window.RTCPeerConnection !== "undefined" && typeof navigator.mediaDevices !== "undefined" &&
+				typeof navigator.mediaDevices.getUserMedia !== "undefined";
+		}
+
+		setICEServers(urls) {
+			this.ICEServers.length = 0;
+			for(var i = 0; i < urls.length; ++i) {
+				var etr = urls[i].split(";");
+				if(etr.length === 1) {
+					this.ICEServers.push({ urls: etr[0] });
+				}else if(etr.length === 3) {
+					this.ICEServers.push({ urls: etr[0], username: etr[1], credential: etr[2] });
+				}
+			}
+		}
+		
+		setICECandidateHandler(cb) {
+			this.iceCandidateHandler = cb;
+		}
+		
+		setDescriptionHandler(cb) {
+			this.descriptionHandler = cb;
+		}
+		
+		setPeerTrackHandler(cb) {
+			this.peerTrackHandler = cb;
+		}
+		
+		setPeerDisconnectHandler(cb) {
+			this.peerDisconnectHandler = cb;
+		}
+
+		activateVoice(tk) {
+			if(this.hasInit) this.localRawMediaStream.getAudioTracks()[0].enabled = tk;
+		}
+		
+		initializeDevices() {
+			if(!this.hasInit) {
+				navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then((stream) => {
+					this.microphoneVolumeAudioContext = new AudioContext();
+					this.localRawMediaStream = stream;
+					this.localRawMediaStream.getAudioTracks()[0].enabled = false;
+					this.localMediaStream = this.microphoneVolumeAudioContext.createMediaStreamDestination();
+					this.localMediaStreamGain = this.microphoneVolumeAudioContext.createGain();
+					var localStreamIn = this.microphoneVolumeAudioContext.createMediaStreamSource(stream);
+					localStreamIn.connect(this.localMediaStreamGain);
+					this.localMediaStreamGain.connect(this.localMediaStream);
+					this.localMediaStreamGain.gain.value = 1.0;
+					this.readyState = READYSTATE_DEVICE_INITIALIZED;
+					this.hasInit = true;
+				}).catch((err) => {
+					this.readyState = READYSTATE_ABORTED;
+				});
+			}else {
+				this.readyState = READYSTATE_DEVICE_INITIALIZED;
+			}
+		}
+		
+		setMicVolume(val) {
+			if(this.hasInit) {
+				if(val > 0.5) val = 0.5 + (val - 0.5) * 2.0;
+				if(val > 1.5) val = 1.5;
+				if(val < 0.0) val = 0.0;
+				this.localMediaStreamGain.gain.value = val * 2.0;
+			}
+		}
+
+		getReadyState() {
+			return this.readyState;
+		}
+
+		signalConnect(peerId, offer) {
+			try {
+				const peerConnection = new RTCPeerConnection({ iceServers: this.ICEServers, optional: [ { DtlsSrtpKeyAgreement: true } ] });
+				const peerInstance = new EaglercraftVoicePeer(this, peerId, peerConnection, offer);
+				this.peerList.set(peerId, peerInstance);
+			} catch (e) {
+			}
+		}
+		
+		signalDescription(peerId, descJSON) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				thePeer.setRemoteDescription(descJSON);
+			}
+		}
+
+		signalDisconnect(peerId, quiet) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				this.peerList.delete(thePeer);
+				try {
+					thePeer.disconnect();
+				}catch(e) {}
+				this.peerDisconnectHandler(peerId, quiet);
+			}
+		}
+
+		mutePeer(peerId, muted) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				thePeer.mute(muted);
+			}
+		}
+		
+		signalICECandidate(peerId, candidate) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				thePeer.addICECandidate(candidate);
+			}
+		}
+		
+	}
+
+	window.constructVoiceClient = () => new EaglercraftVoiceClient();
+});
+
+window.startVoiceClient = () => {
+	if(typeof window.constructVoiceClient !== "function") {
+		window.initializeVoiceClient();
+	}
+	return window.constructVoiceClient();
+};
+
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%% LAN CLIENT CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+window.initializeLANClient = (() => {
+
+	const READYSTATE_INIT_FAILED = -2;
+	const READYSTATE_FAILED = -1;
+	const READYSTATE_DISCONNECTED = 0;
+	const READYSTATE_CONNECTING = 1;
+	const READYSTATE_CONNECTED = 2;
+	
+	class EaglercraftLANClient {
+
+		constructor() {
+			this.ICEServers = [];
+			this.peerConnection = null;
+			this.dataChannel = null;
+			this.readyState = READYSTATE_CONNECTING;
+			this.iceCandidateHandler = null;
+			this.descriptionHandler = null;
+			this.remoteDataChannelHandler = null;
+			this.remoteDisconnectHandler = null;
+			this.remotePacketHandler = null;
+		}
+		
+		LANClientSupported() {
+			return typeof window.RTCPeerConnection !== "undefined";
+		}
+		
+		initializeClient() {
+			try {
+				if(this.dataChannel !== null) {
+					this.dataChannel.close();
+					this.dataChannel = null;
+				}
+				if(this.peerConnection !== null) {
+					this.peerConnection.close();
+				}
+				this.peerConnection = new RTCPeerConnection({ iceServers: this.ICEServers, optional: [ { DtlsSrtpKeyAgreement: true } ] });
+				this.readyState = READYSTATE_CONNECTING;
+			} catch (e) {
+				this.readyState = READYSTATE_INIT_FAILED;
+			}
+		}
+		
+		setICEServers(urls) {
+			this.ICEServers.length = 0;
+			for(var i = 0; i < urls.length; ++i) {
+				var etr = urls[i].split(";");
+				if(etr.length === 1) {
+					this.ICEServers.push({ urls: etr[0] });
+				}else if(etr.length === 3) {
+					this.ICEServers.push({ urls: etr[0], username: etr[1], credential: etr[2] });
+				}
+			}
+		}
+		
+		setICECandidateHandler(cb) {
+			this.iceCandidateHandler = cb;
+		}
+		
+		setDescriptionHandler(cb) {
+			this.descriptionHandler = cb;
+		}
+		
+		setRemoteDataChannelHandler(cb) {
+			this.remoteDataChannelHandler = cb;
+		}
+		
+		setRemoteDisconnectHandler(cb) {
+			this.remoteDisconnectHandler = cb;
+		}
+		
+		setRemotePacketHandler(cb) {
+			this.remotePacketHandler = cb;
+		}
+		
+		getReadyState() {
+			return this.readyState;
+		}
+		
+		sendPacketToServer(buffer) {
+			if(this.dataChannel !== null && this.dataChannel.readyState === "open") {
+				this.dataChannel.send(buffer);
+			}else {
+				this.signalRemoteDisconnect(false);
+			}
+		}
+		
+		signalRemoteConnect() {
+
+			const iceCandidates = [];
+
+			this.peerConnection.addEventListener("icecandidate", (evt) => {
+				if(evt.candidate) {
+					if(iceCandidates.length === 0) {
+						let candidateState = [ 0, 0 ];
+						let runnable;
+						setTimeout(runnable = () => {
+							if(this.peerConnection !== null && this.peerConnection.connectionState !== "disconnected") {
+								const trial = ++candidateState[1];
+								if(candidateState[0] !== iceCandidates.length && trial < 3) {
+									candidateState[0] = iceCandidates.length;
+									setTimeout(runnable, 2000);
+									return;
+								}
+								this.iceCandidateHandler(JSON.stringify(iceCandidates));
+								iceCandidates.length = 0;
+							}
+						}, 2000);
+					}
+                    iceCandidates.push({ sdpMLineIndex: evt.candidate.sdpMLineIndex, candidate: evt.candidate.candidate });
+				}
+			});
+
+			this.dataChannel = this.peerConnection.createDataChannel("lan");
+			this.dataChannel.binaryType = "arraybuffer";
+
+			this.dataChannel.addEventListener("open", async (evt) => {
+				while(iceCandidates.length > 0) {
+					await new Promise(resolve => setTimeout(resolve, 10));
+				}
+				this.remoteDataChannelHandler(this.dataChannel);
+			});
+
+			this.dataChannel.addEventListener("message", (evt) => {
+				this.remotePacketHandler(evt.data);
+			}, false);
+
+			this.peerConnection.createOffer((desc) => {
+				const selfDesc = desc;
+				this.peerConnection.setLocalDescription(selfDesc, () => {
+					this.descriptionHandler(JSON.stringify(selfDesc));
+				}, (err) => {
+					console.error("Failed to set local description! " + err);
+					this.readyState = READYSTATE_FAILED;
+					this.signalRemoteDisconnect(false);
+				});
+			}, (err) => {
+				console.error("Failed to set create offer! " + err);
+				this.readyState = READYSTATE_FAILED;
+				this.signalRemoteDisconnect(false);
+			});
+
+			this.peerConnection.addEventListener("connectionstatechange", (evt) => {
+				if(this.peerConnection.connectionState === 'disconnected') {
+					this.signalRemoteDisconnect(false);
+				} else if (this.peerConnection.connectionState === 'connected') {
+					this.readyState = READYSTATE_CONNECTED;
+				} else if (this.peerConnection.connectionState === 'failed') {
+					this.readyState = READYSTATE_FAILED;
+					this.signalRemoteDisconnect(false);
+				}
+			});
+		}
+		
+		signalRemoteDescription(descJSON) {
+			try {
+				this.peerConnection.setRemoteDescription(JSON.parse(descJSON));
+			} catch (e) {
+				console.error(e);
+				this.readyState = READYSTATE_FAILED;
+				this.signalRemoteDisconnect(false);
+			}
+		}
+		
+		signalRemoteICECandidate(candidates) {
+			try {
+				const candidateList = JSON.parse(candidates);
+				for (let candidate of candidateList) {
+					this.peerConnection.addIceCandidate(candidate);
+				}
+			} catch (e) {
+				console.error(e);
+				this.readyState = READYSTATE_FAILED;
+				this.signalRemoteDisconnect(false);
+			}
+		}
+
+		signalRemoteDisconnect(quiet) {
+			if(this.dataChannel !== null) {
+				this.dataChannel.close();
+				this.dataChannel = null;
+			}
+			if(this.peerConnection !== null) {
+				this.peerConnection.close();
+			}
+			if(!quiet) this.remoteDisconnectHandler();
+			this.readyState = READYSTATE_DISCONNECTED;
+		}
+		
+	};
+	
+	window.constructLANClient = () => new EaglercraftLANClient();
+});
+
+window.startLANClient = () => {
+	if(typeof window.constructLANClient !== "function") {
+		window.initializeLANClient();
+	}
+	return window.constructLANClient();
+};
+
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%% LAN SERVER CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+window.initializeLANServer = (() => {
+
+	class EaglercraftLANPeer {
+
+		constructor(client, peerId, peerConnection) {
+			this.client = client;
+			this.peerId = peerId;
+			this.peerConnection = peerConnection;
+			this.dataChannel = null;
+
+			const iceCandidates = [];
+			let hasICE = false;
+
+			this.peerConnection.addEventListener("icecandidate", (evt) => {
+				if(evt.candidate) {
+					if(iceCandidates.length === 0) {
+						let candidateState = [ 0, 0 ];
+						let runnable;
+						setTimeout(runnable = () => {
+							if(this.peerConnection !== null && this.peerConnection.connectionState !== "disconnected") {
+								const trial = ++candidateState[1];
+								if(candidateState[0] !== iceCandidates.length && trial < 3) {
+									candidateState[0] = iceCandidates.length;
+									setTimeout(runnable, 2000);
+									return;
+								}
+								this.client.iceCandidateHandler(this.peerId, JSON.stringify(iceCandidates));
+								iceCandidates.length = 0;
+								hasICE = true;
+							}
+						}, 2000);
+					}
+                    iceCandidates.push({ sdpMLineIndex: evt.candidate.sdpMLineIndex, candidate: evt.candidate.candidate });
+				}
+			});
+
+			this.peerConnection.addEventListener("datachannel", async (evt) => {
+				while(!hasICE) {
+					await new Promise(resolve => setTimeout(resolve, 10));
+				}
+				this.dataChannel = evt.channel;
+				this.client.remoteClientDataChannelHandler(this.peerId, this.dataChannel);
+				this.dataChannel.addEventListener("message", (evt) => {
+					this.client.remoteClientPacketHandler(this.peerId, evt.data);
+				}, false);
+			}, false);
+
+			this.peerConnection.addEventListener("connectionstatechange", (evt) => {
+				if(this.peerConnection.connectionState === 'disconnected' || this.peerConnection.connectionState === 'failed') {
+					this.client.signalRemoteDisconnect(this.peerId);
+				}
+			});
+
+		}
+
+		disconnect() {
+			if(this.dataChannel !== null) {
+				this.dataChannel.close();
+				this.dataChannel = null;
+			}
+			this.peerConnection.close();
+		}
+
+		setRemoteDescription(descJSON) {
+			try {
+				const remoteDesc = JSON.parse(descJSON);
+				this.peerConnection.setRemoteDescription(remoteDesc, () => {
+					if(remoteDesc.type === 'offer') {
+						this.peerConnection.createAnswer((desc) => {
+							const selfDesc = desc;
+							this.peerConnection.setLocalDescription(selfDesc, () => {
+								this.client.descriptionHandler(this.peerId, JSON.stringify(selfDesc));
+							}, (err) => {
+								console.error("Failed to set local description for \"" + this.peerId + "\"! " + err);
+								this.client.signalRemoteDisconnect(this.peerId);
+							});
+						}, (err) => {
+							console.error("Failed to create answer for \"" + this.peerId + "\"! " + err);
+							this.client.signalRemoteDisconnect(this.peerId);
+						});
+					}
+				}, (err) => {
+					console.error("Failed to set remote description for \"" + this.peerId + "\"! " + err);
+					this.client.signalRemoteDisconnect(this.peerId);
+				});
+			} catch (err) {
+				console.error("Failed to parse remote description for \"" + this.peerId + "\"! " + err);
+				this.client.signalRemoteDisconnect(this.peerId);
+			}
+		}
+
+		addICECandidate(candidates) {
+			try {
+				const candidateList = JSON.parse(candidates);
+				for (let candidate of candidateList) {
+					this.peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+				}
+			} catch (err) {
+				console.error("Failed to parse ice candidate for \"" + this.peerId + "\"! " + err);
+				this.client.signalRemoteDisconnect(this.peerId);
+			}
+		}
+
+	}
+	
+	class EaglercraftLANServer {
+		
+		constructor() {
+			this.ICEServers = [];
+			this.hasInit = false;
+			this.peerList = new Map();
+			this.iceCandidateHandler = null;
+			this.descriptionHandler = null;
+			this.remoteClientDataChannelHandler = null;
+			this.remoteClientDisconnectHandler = null;
+			this.remoteClientPacketHandler = null;
+		}
+		
+		LANServerSupported() {
+			return typeof window.RTCPeerConnection !== "undefined";
+		}
+		
+		initializeServer() {
+			// nothing to do!
+		}
+		
+		setICEServers(urls) {
+			this.ICEServers.length = 0;
+			for(var i = 0; i < urls.length; ++i) {
+				var etr = urls[i].split(";");
+				if(etr.length === 1) {
+					this.ICEServers.push({ urls: etr[0] });
+				}else if(etr.length === 3) {
+					this.ICEServers.push({ urls: etr[0], username: etr[1], credential: etr[2] });
+				}
+			}
+		}
+		
+		setICECandidateHandler(cb) {
+			this.iceCandidateHandler = cb;
+		}
+		
+		setDescriptionHandler(cb) {
+			this.descriptionHandler = cb;
+		}
+		
+		setRemoteClientDataChannelHandler(cb) {
+			this.remoteClientDataChannelHandler = cb;
+		}
+		
+		setRemoteClientDisconnectHandler(cb) {
+			this.remoteClientDisconnectHandler = cb;
+		}
+		
+		setRemoteClientPacketHandler(cb) {
+			this.remoteClientPacketHandler = cb;
+		}
+		
+		sendPacketToRemoteClient(peerId, buffer) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				if(thePeer.dataChannel != null && thePeer.dataChannel.readyState === "open") {
+					thePeer.dataChannel.send(buffer);
+				}else {
+					this.signalRemoteDisconnect(peerId);
+				}
+			}
+		}
+
+		signalRemoteConnect(peerId) {
+			try {
+				const peerConnection = new RTCPeerConnection({ iceServers: this.ICEServers, optional: [ { DtlsSrtpKeyAgreement: true } ] });
+				const peerInstance = new EaglercraftLANPeer(this, peerId, peerConnection);
+				this.peerList.set(peerId, peerInstance);
+			} catch (e) {
+			}
+		}
+
+		signalRemoteDescription(peerId, descJSON) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				thePeer.setRemoteDescription(descJSON);
+			}
+		}
+
+		signalRemoteICECandidate(peerId, candidate) {
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				thePeer.addICECandidate(candidate);
+			}
+		}
+
+		signalRemoteDisconnect(peerId) {
+			if(peerId.length === 0) {
+				for(const thePeer of this.peerList.values()) {
+                	if((typeof thePeer !== "undefined") && thePeer !== null) {
+						this.peerList.delete(peerId);
+						try {
+							thePeer.disconnect();
+						}catch(e) {}
+						this.remoteClientDisconnectHandler(peerId);
+					}
+                }
+                this.peerList.clear();
+				return;
+			}
+			var thePeer = this.peerList.get(peerId);
+			if((typeof thePeer !== "undefined") && thePeer !== null) {
+				this.peerList.delete(peerId);
+				try {
+					thePeer.disconnect();
+				}catch(e) {}
+				this.remoteClientDisconnectHandler(peerId);
+			}
+		}
+		
+		countPeers() {
+			return this.peerList.size;
+		}
+		
+	};
+	
+	window.constructLANServer = () => new EaglercraftLANServer();
+});
+
+window.startLANServer = () => {
+	if(typeof window.constructLANServer !== "function") {
+		window.initializeLANServer();
+	}
+	return window.constructLANServer();
+};
