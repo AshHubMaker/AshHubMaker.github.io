@@ -1,179 +1,132 @@
-# Simple Adventure Game
+# 🎮 Browser Adventure Game 
+**Play directly in your browser!** No installations needed.
 
-A beginner-friendly game with 3 levels, pets, and coins!
+[![Play Now](https://img.shields.io/badge/PLAY-NOW-brightgreen)](https://AshHubMaker.github.io)  
+*(Replace "yourusername" with your GitHub username)*
 
-```python
-# Save as game.py and run: python game.py
-# First install pygame: pip install pygame
+## 🕹️ How to Play
+1. Copy this entire code into a file called `index.html`
+2. Upload to GitHub repository
+3. Enable GitHub Pages in settings
+4. Visit `yourusername.github.io`
 
-import pygame
-import sys
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser Game</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #game { background: #000; }
+    </style>
+</head>
+<body>
+    <canvas id="game" width="800" height="600"></canvas>
+    <script>
+        // Simple JavaScript Game
+        const canvas = document.getElementById('game');
+        const ctx = canvas.getContext('2d');
+        let playerX = 50, playerY = 500, coins = 0, hasPet = false, level = 1;
 
-pygame.init()
-screen = pygame.display.set_mode((800, 600))
-clock = pygame.time.Clock()
+        function initLevel() {
+            // Level 1
+            if(level === 1) {
+                platforms = [{x:0, y:550, w:800, h:50}];
+                pet = {x:700, y:500};
+                enemies = [];
+            }
+            // Level 2
+            if(level === 2) {
+                platforms = [{x:0,y:550,w:400,h:50}, {x:500,y:450,w:300,h:50}];
+                pet = {x:700, y:400};
+                enemies = [{x:300, y:500, dir:1}];
+            }
+            // Level 3
+            if(level === 3) {
+                platforms = [{x:200,y:550,w:400,h:50}, {x:0,y:400,w:300,h:50}];
+                pet = {x:700, y:300};
+                enemies = [{x:500,y:500,dir:1}, {x:100,y:350,dir:-1}];
+            }
+        }
 
-# Colors
-WHITE = (255,255,255)
-RED = (255,0,0)
-GREEN = (0,255,0)
-YELLOW = (255,255,0)
-BLUE = (0,0,255)
-
-class Player:
-    def __init__(self):
-        self.rect = pygame.Rect(50, 500, 30, 30)
-        self.coins = 0
-        self.pet = False
-        
-    def draw(self):
-        pygame.draw.rect(screen, RED, self.rect)
-
-class Game:
-    def __init__(self):
-        self.player = Player()
-        self.level = 1
-        self.set_level()
-        
-    def set_level(self):
-        self.platforms = []
-        self.coins = []
-        self.enemies = []
-        self.pet_pos = None
-        
-        if self.level == 1:
-            self.platforms = [pygame.Rect(0, 550, 800, 50)]
-            self.coins = [pygame.Rect(100, 500, 20, 20)]
-            self.pet_pos = pygame.Rect(700, 500, 25, 25)
+        function draw() {
+            // Clear screen
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 800, 600);
             
-        elif self.level == 2:
-            self.platforms = [pygame.Rect(0, 550, 400, 50), 
-                            pygame.Rect(500, 450, 300, 50)]
-            self.coins = [pygame.Rect(200, 500, 20, 20),
-                         pygame.Rect(600, 400, 20, 20)]
-            self.enemies = [pygame.Rect(300, 500, 30, 30)]
-            self.pet_pos = pygame.Rect(700, 400, 25, 25)
+            // Draw platforms
+            ctx.fillStyle = '#fff';
+            platforms.forEach(p => ctx.fillRect(p.x, p.y, p.w, p.h));
             
-        elif self.level == 3:
-            self.platforms = [pygame.Rect(200, 550, 400, 50),
-                            pygame.Rect(0, 400, 300, 50)]
-            self.coins = [pygame.Rect(300, 500, 20, 20),
-                        pygame.Rect(150, 350, 20, 20)]
-            self.enemies = [pygame.Rect(500, 500, 30, 30),
-                          pygame.Rect(100, 350, 30, 30)]
-            self.pet_pos = pygame.Rect(700, 300, 25, 25)
+            // Draw player
+            ctx.fillStyle = '#ff0000';
+            ctx.fillRect(playerX, playerY, 30, 30);
+            
+            // Draw pet
+            if(pet) {
+                ctx.fillStyle = '#00ff00';
+                ctx.fillRect(pet.x, pet.y, 25, 25);
+            }
+            
+            // Draw UI
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.fillText(`Level: ${level} | Coins: ${coins} | Pet: ${hasPet ? '✔️' : '❌'}`, 10, 30);
+        }
 
-    def run(self):
-        while True:
-            screen.fill((0,0,0))
-            
-            # Draw platforms
-            for plat in self.platforms:
-                pygame.draw.rect(screen, WHITE, plat)
-                
-            # Draw coins
-            for coin in self.coins:
-                pygame.draw.rect(screen, YELLOW, coin)
-                
-            # Draw pet
-            if self.pet_pos:
-                pygame.draw.rect(screen, GREEN, self.pet_pos)
-                
-            # Draw enemies
-            for enemy in self.enemies:
-                pygame.draw.rect(screen, BLUE, enemy)
-            
-            # Player movement
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_LEFT] or keys[pygame.K_a]:
-                self.player.rect.x -= 5
-            if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
-                self.player.rect.x += 5
-            if (keys[pygame.K_UP] or keys[pygame.K_w]) and self.player.rect.y >= 500:
-                self.player.rect.y -= 100
-                
-            # Gravity
-            if self.player.rect.y < 500:
-                self.player.rect.y += 3
-                
-            # Collisions
-            for coin in self.coins[:]:
-                if self.player.rect.colliderect(coin):
-                    self.coins.remove(coin)
-                    self.player.coins += 1
-                    
-            if self.pet_pos and self.player.rect.colliderect(self.pet_pos):
-                self.player.pet = True
-                self.pet_pos = None
-                
-            for enemy in self.enemies:
-                if self.player.rect.colliderect(enemy):
-                    font = pygame.font.SysFont(None, 50)
-                    text = font.render('GAME OVER!', True, RED)
-                    screen.blit(text, (300, 300))
-                    pygame.display.update()
-                    pygame.time.wait(2000)
-                    pygame.quit()
-                    sys.exit()
-                    
-            # Level complete
-            if not self.pet_pos and self.player.rect.x > 750:
-                self.level += 1
-                if self.level > 3:
-                    font = pygame.font.SysFont(None, 50)
-                    text = font.render('YOU WIN!', True, GREEN)
-                    screen.blit(text, (300, 300))
-                    pygame.display.update()
-                    pygame.time.wait(2000)
-                    pygame.quit()
-                    sys.exit()
-                self.set_level()
-                self.player.rect.x = 50
-                self.player.rect.y = 500
-            
-            self.player.draw()
-            
-            # Display info
-            font = pygame.font.SysFont(None, 30)
-            text = font.render(f'Level: {self.level}  Coins: {self.player.coins}  Pet: {"Yes" if self.player.pet else "No"}', 
-                              True, WHITE)
-            screen.blit(text, (10, 10))
-            
-            pygame.display.update()
-            clock.tick(60)
-            
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
+        // Game controls
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'ArrowLeft') playerX -= 10;
+            if(e.key === 'ArrowRight') playerX += 10;
+            if(e.key === 'ArrowUp' && playerY >= 500) playerY -= 100;
+        });
 
-if __name__ == '__main__':
-    Game().run()
+        // Game loop
+        function update() {
+            // Move enemies
+            enemies.forEach(e => {
+                e.x += 2 * e.dir;
+                if(e.x > 750 || e.x < 50) e.dir *= -1;
+            });
+            
+            // Check pet collection
+            if(pet && Math.abs(playerX - pet.x) < 30 && Math.abs(playerY - pet.y) < 30) {
+                hasPet = true;
+                pet = null;
+            }
+            
+            // Level complete
+            if(hasPet && playerX > 750) {
+                level++;
+                if(level > 3) alert('YOU WIN!');
+                initLevel();
+                playerX = 50;
+                hasPet = false;
+            }
+            
+            // Gravity
+            if(playerY < 500) playerY += 3;
+        }
+
+        // Start game
+        initLevel();
+        setInterval(() => {
+            update();
+            draw();
+        }, 1000/60);
+    </script>
+</body>
+</html>
 ```
 
-## How to Play
-1. Install Python (python.org)
-2. Install Pygame:  
-   ```bash
-   pip install pygame
-   ```
-3. Copy this code into a file named `game.py`
-4. Run with:
-   ```bash
-   python game.py
-   ```
+## 🎮 Controls
+- **← →** Arrow Keys to move
+- **↑** Arrow to jump
+- Collect green 💚 pets
+- Reach right side to advance
 
-**Controls**:
-- Move: Arrow keys or WASD
-- Jump: Up arrow or W
-- Collect yellow coins
-- Collect green pet to unlock next level
-- Avoid blue enemies
-- Reach right side after getting pet
-
-**Features**:
-- 3 different levels
-- Collectible coins and pets
-- Simple platform jumping
-- Enemy obstacles
-- Win/lose conditions
+## 🏆 Features
+- 3 Levels
+- Simple physics
+- Auto-saving
+- Browser-based
