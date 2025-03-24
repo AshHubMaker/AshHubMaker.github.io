@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.log
+*.png
+*.jpg
+*.wav
+*.mp3
+venv/
+env/
