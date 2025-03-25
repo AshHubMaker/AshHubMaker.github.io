@@ -200,7 +200,11 @@
   function addScore(n)            { score += n; }
   function clearScore()           { setScore(0); }
   function clearRows()            { setRows(0); }
-  function setRows(n)             { rows = n; step = Math.max(speed.min, speed.start - (speed.decrement*rows)); invalidateRows(); }
+  function setRows(n) {
+  rows = n;
+  step = speed.start; // ✅ constant speed
+  invalidateRows();
+}
   function addRows(n)             { setRows(rows + n); }
   function getBlock(x,y)          { return (blocks && blocks[x] ? blocks[x][y] : null); }
   function setBlock(x,y,type)     { blocks[x] = blocks[x] || []; blocks[x][y] = type; invalidate(); }
