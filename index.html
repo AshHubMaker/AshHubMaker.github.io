@@ -15,6 +15,15 @@
     #rows     { color: blue; font-weight: bold; vertical-align: middle; }
     #stats    { position: absolute; bottom: 0em; right: 1em; }
     button    { font-size: 1em; padding: 0.3em 1em; }
+
+    /* Original Responsive Layout */
+    @media screen and (min-width:   0px) and (min-height:   0px)  { #tetris { font-size: 0.75em; width: 250px; } #menu { width: 100px; height: 200px; } #upcoming { width:  50px; height:  50px; } #canvas { width: 100px; height: 200px; } }
+    @media screen and (min-width: 400px) and (min-height: 400px)  { #tetris { font-size: 1.00em; width: 350px; } #menu { width: 150px; height: 300px; } #upcoming { width:  75px; height:  75px; } #canvas { width: 150px; height: 300px; } }
+    @media screen and (min-width: 500px) and (min-height: 500px)  { #tetris { font-size: 1.25em; width: 450px; } #menu { width: 200px; height: 400px; } #upcoming { width: 100px; height: 100px; } #canvas { width: 200px; height: 400px; } }
+    @media screen and (min-width: 600px) and (min-height: 600px)  { #tetris { font-size: 1.50em; width: 550px; } #menu { width: 250px; height: 500px; } #upcoming { width: 125px; height: 125px; } #canvas { width: 250px; height: 500px; } }
+    @media screen and (min-width: 700px) and (min-height: 700px)  { #tetris { font-size: 1.75em; width: 650px; } #menu { width: 300px; height: 600px; } #upcoming { width: 150px; height: 150px; } #canvas { width: 300px; height: 600px; } }
+    @media screen and (min-width: 800px) and (min-height: 800px)  { #tetris { font-size: 2.00em; width: 750px; } #menu { width: 350px; height: 700px; } #upcoming { width: 175px; height: 175px; } #canvas { width: 350px; height: 700px; } }
+    @media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 850px; } #menu { width: 400px; height: 800px; } #upcoming { width: 200px; height: 200px; } #canvas { width: 400px; height: 800px; } }
   </style>
 </head>
 
@@ -23,22 +32,20 @@
   <div id="tetris">
     <div id="menu">
       <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
-      <p><canvas id="upcoming" width="75" height="75"></canvas></p>
+      <p><canvas id="upcoming"></canvas></p>
       <p>score <span id="score">00000</span></p>
       <p>rows <span id="rows">0</span></p>
       <p><button onclick="togglePause()">Pause</button></p>
     </div>
-    <canvas id="canvas" width="150" height="300">
+    <canvas id="canvas">
       Sorry, your browser does not support the &lt;canvas&gt; element.
     </canvas>
   </div>
 
   <script src="stats.js"></script>
-  <script>
-    // ============================================================================
-    // 🎮 Extra Controls: Pause and Cheat Mode (Shift + A)
-    // ============================================================================
 
+  <!-- ✅ Add pause + cheat handler BEFORE game code -->
+  <script>
     var paused = false;
 
     function togglePause() {
@@ -62,13 +69,11 @@
     }, false);
   </script>
 
+  <!-- ✅ Now load the full original game script here -->
   <script>
-    // ============================================================================
-    // ⬇️ Paste the FULL game logic you already had here. All original <script>...
-    // Just insert your existing Tetris code below from where it starts: 
-    // // base helper methods, requestAnimationFrame, run(), draw(), etc.
-    // ============================================================================
-    // 👇 👇 👇 Paste from here (you already shared it above)
+    // 🔁 Place your original Tetris game script here.
+    // Just paste all the JS code you already wrote (the long one you shared),
+    // including: game constants, helper functions, run(), update(), draw(), etc.
   </script>
 
 </body>
